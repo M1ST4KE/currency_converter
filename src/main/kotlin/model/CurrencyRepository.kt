@@ -6,7 +6,6 @@ data class CurrencyRepository(
     val currencies: HashSet<Currency> = currenciesFactory.generateSet()
 }
 
-
 interface CurrenciesFactory {
     fun generateSet(): HashSet<Currency>
 }
