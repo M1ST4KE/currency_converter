@@ -1,6 +1,6 @@
 package model
 
-class Currency (
+class Currency(
     val name: String,
     val shortcut: String,
     val exchangeRate: Double,
@@ -10,7 +10,8 @@ class Currency (
         builder.name,
         builder.shortcut,
         builder.exchangeRate,
-        builder.convertRatio)
+        builder.convertRatio
+    )
 
     companion object {
         inline fun build(block: Builder.() -> Unit) = Builder().apply(block).build()
@@ -25,7 +26,7 @@ class Currency (
         fun build() = Currency(this)
     }
 
-    override fun equals(other: Any?): Boolean  =
+    override fun equals(other: Any?): Boolean =
         if (other != null && other is Currency)
             other.shortcut == this.shortcut
         else

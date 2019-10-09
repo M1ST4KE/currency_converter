@@ -2,7 +2,6 @@ package model
 
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import java.util.HashSet
 
 class CurrencyRepositoryTest {
     private val repositoryFactory = CurrenciesFactoryMock()
@@ -35,6 +34,14 @@ class CurrencyRepositoryTest {
         val currencyToSearch = Currency.build { shortcut = "EUR" }
 
         // when
-        val output = (currencyRepository.currencies as HashSet<Int>).getElement(1)
+        val output = currencyRepository.currencies.find { it == currencyToSearch }
+
+        // then
+        assert(
+            output != null &&
+            output.name == "euro" &&
+            output.shortcut == "EUR" &&
+            output.exchangeRate == 4.3521 &&
+            output.convertRatio == 1)
     }
 }

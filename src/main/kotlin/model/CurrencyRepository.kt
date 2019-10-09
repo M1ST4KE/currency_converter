@@ -1,6 +1,6 @@
 package model
 
-data class CurrencyRepository (
+data class CurrencyRepository(
     private val currenciesFactory: CurrenciesFactory
 ) {
     val currencies: HashSet<Currency> = currenciesFactory.generateSet()
