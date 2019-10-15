@@ -1,16 +1,21 @@
-package model
+package to.currencyconverter.model
 
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class CurrencyRepositoryTest {
-    private val repositoryFactory = CurrenciesFactoryMock()
+
+    @BeforeEach
+    fun setUp() {
+        CurrencyRepository.initialize(CurrenciesFactoryMock())
+    }
 
     @Test
     @DisplayName("should return all elements of set")
     fun test1() {
         // given
-        val currencyRepository = CurrencyRepository(repositoryFactory)
+        val currencyRepository = CurrencyRepository
 
         // when
         val output = currencyRepository.currencies
@@ -30,18 +35,18 @@ class CurrencyRepositoryTest {
     @DisplayName("should return specific element of set")
     fun test2() {
         // given
-        val currencyRepository = CurrencyRepository(repositoryFactory)
+        val currencyRepository = CurrencyRepository
         val currencyToSearch = Currency.build { shortcut = "EUR" }
 
         // when
-        val output = currencyRepository.currencies.find { it == currencyToSearch }
+        val output = currencyRepository.findCurrency(currencyToSearch)
 
         // then
         assert(
-            output != null &&
             output.name == "euro" &&
             output.shortcut == "EUR" &&
             output.exchangeRate == 4.3521 &&
-            output.convertRatio == 1)
+            output.convertRatio == 1
+        )
     }
 }

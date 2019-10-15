@@ -1,4 +1,4 @@
-package model
+package to.currencyconverter.model
 
 class Currency(
     val name: String,

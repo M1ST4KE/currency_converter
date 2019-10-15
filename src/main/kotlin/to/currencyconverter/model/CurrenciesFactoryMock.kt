@@ -1,4 +1,4 @@
-package model
+package to.currencyconverter.model
 
 class CurrenciesFactoryMock : CurrenciesFactory {
     override fun generateSet(): HashSet<Currency> =
