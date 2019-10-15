@@ -13,7 +13,7 @@ class MainApp : App(MainView::class, Styles::class) {
     override fun start(stage: Stage) {
         CurrencyRepository.initialize(CurrencyFactoryNbp())
         with(stage) {
-            minWidth = 470.0
+            minWidth = 580.0
             minHeight = 400.0
             super.start(this)
         }
