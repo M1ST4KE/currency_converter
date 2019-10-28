@@ -26,6 +26,6 @@ class Client {
         if (response.isSuccessful && response.body != null)
             currenciesXml = response.body!!.string()
         else
-            throw Exception("No jebło ¯\\_(ツ)_/¯")
+            throw Exception("¯\\_(ツ)_/¯")
     }
 }
